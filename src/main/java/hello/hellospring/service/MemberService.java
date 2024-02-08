@@ -8,8 +8,11 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
 
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository; //이러한 방법을 dependency injection 이라고 부른다.
+    }
 
     public long join(Member member){
         //같은 이름이 있는 중복회원 X
